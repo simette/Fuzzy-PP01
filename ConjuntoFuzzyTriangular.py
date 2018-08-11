@@ -73,3 +73,35 @@ def calcula_alfa_corte(conjunto, alfa_corte):
 		x = x + 0.01
 
 	return "[" + str(conjunto_alfa_corte[0]) + ", " + str(conjunto_alfa_corte[-1]) + "]"
+
+
+def calcula_cardinalidade(conjunto):
+	cardinalidade = 0
+	x = 0
+	while(x <= 2):
+		pertinencia = calcula_pertinencia(conjunto, x)
+		cardinalidade = cardinalidade + pertinencia
+		x = x + 0.01
+
+	return cardinalidade
+
+
+def calcula_soma_max(conjunto_a, conjunto_b):
+	soma = 0
+	x = 0
+	while(x <= 2):
+		pertinencia_a = calcula_pertinencia(conjunto_a, x)
+		pertinencia_b = calcula_pertinencia(conjunto_b, x)
+		soma = soma + max(0, pertinencia_a - pertinencia_b)
+		x = x + 0.01
+
+	return soma
+
+
+def calcula_grau_de_inclusao(conjunto_a, conjunto_b):
+	cardinalidade_a = calcula_cardinalidade(conjunto_a)
+	valor = calcula_soma_max(conjunto_a, conjunto_b)
+
+	grau_de_inclusao = (1*(cardinalidade_a - valor)) / cardinalidade_a
+
+	return round(grau_de_inclusao, 2)

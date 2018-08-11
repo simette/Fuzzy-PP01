@@ -21,6 +21,7 @@ print("A pertinência da altura " + str(altura) + " para o conjunto " + nome_con
 step = raw_input("\nValor para s: ")
 fuzzy.calcula_pertinencia_para_um_intervalo(conjunto, step)
 
+print("\n\n")
 suporte = fuzzy.calcula_suporte(conjunto)
 print('O intervalo de suporte para o conjunto ' + nome_conjunto + ' é: ' + suporte)
 
@@ -31,3 +32,12 @@ alfa_corte = raw_input('Valor para alfa-corte: ')
 conjunto_alfa_corte = fuzzy.calcula_alfa_corte(conjunto, alfa_corte)
 print('O intervalo correspondente ao alfa-corte é:' + conjunto_alfa_corte)
 
+print("\n\n")
+conjunto_baixo = fuzzy.get_valores_conjunto('1')
+conjunto_medio = fuzzy.get_valores_conjunto('2')
+conjunto_alto = fuzzy.get_valores_conjunto('3')
+
+grau_inclusao_baixo_medio = fuzzy.calcula_grau_de_inclusao(conjunto_baixo, conjunto_medio)
+grau_inclusao_medio_alto = fuzzy.calcula_grau_de_inclusao(conjunto_medio, conjunto_baixo)
+print('Grau de inclusão do conjunto baixo no conjunto médio: ' + str(grau_inclusao_baixo_medio))
+print('Grau de inclusão do conjunto médio no conjunto alto: ' + str(grau_inclusao_medio_alto))
