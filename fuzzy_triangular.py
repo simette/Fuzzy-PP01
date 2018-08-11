@@ -7,28 +7,21 @@ print(" -> 1 para o grupo baixo")
 print(" -> 2 para o grupo medio")
 print(" -> 3 para o grupo alto")
 
-n_grupo = raw_input()
-nome_grupo = util.getVariavelLinguistica(n_grupo)
-print("Grupo " + nome_grupo + " escolhido \n")
+num_conjunto = raw_input()
+nome_conjunto = util.getVariavelLinguistica(num_conjunto)
+print("Conjunto " + nome_conjunto + " escolhido \n")
 
 altura = raw_input("Qual a altura? ")
 
-grupo = fuzzy.get_valores_conjunto(n_grupo)
-pertinencia = fuzzy.calcula_pertinencia(grupo, altura)
-print("pertinencia: " + str(pertinencia))
+conjunto = fuzzy.get_valores_conjunto(num_conjunto)
+pertinencia = fuzzy.calcula_pertinencia(conjunto, altura)
+print("Pertinência: " + str(pertinencia))
 
-step = raw_input("Valor para s: ")
+step = raw_input("Valor para step: ")
+fuzzy.calcula_pertinencia_para_um_intervalo(conjunto, step)
 
-x = 0
-while(x <= 2):
-	pertinencia = fuzzy.calcula_pertinencia(grupo, x)
-	print("Valor " + str(x) + " tem pertinência igual a: " + str(pertinencia))
-	x = x + float(step)
+suporte = fuzzy.calcula_suporte(conjunto)
+print('O intervalo de suporte para o conjunto ' + nome_conjunto + ' é: ' + suporte)
 
-suporte = fuzzy.calcula_suporte(grupo)
-print('O intervalo de suporte para o grupo ' + nome_grupo + ' é: ' + suporte)
-
-nucleo = fuzzy.calcula_nucleo(grupo)
-print('O núcleo do grupo ' + nome_grupo + ' é: ' + nucleo)
-
-
+nucleo = fuzzy.calcula_nucleo(conjunto)
+print('O núcleo do conjunto ' + nome_conjunto + ' é: ' + nucleo)
