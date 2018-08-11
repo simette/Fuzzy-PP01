@@ -64,8 +64,8 @@ def calcula_altura(conjunto):
 
 def calcula_alfa_corte(conjunto, alfa_corte):
 	conjunto_alfa_corte = []
-	x = 1
-	while x < 2.0:
+	x = 0
+	while x <= 2.0:
 		pertinencia = calcula_pertinencia(conjunto, x)
 		if pertinencia >= float(alfa_corte):
 			valor = round(x, 2)
