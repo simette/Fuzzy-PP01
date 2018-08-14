@@ -65,7 +65,7 @@ def calcula_nucleo(conjunto):
 
 
 def calcula_altura(conjunto):
-	return ''
+	return calcula_pertinencia(conjunto, conjunto['m'])
 
 
 def calcula_alfa_corte(conjunto, alfa_corte):

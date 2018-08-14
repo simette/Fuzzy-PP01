@@ -28,7 +28,9 @@ print('O intervalo de suporte para o conjunto ' + nome_conjunto + ' é: ' + supo
 nucleo = fuzzy.calcula_nucleo(conjunto)
 print('O núcleo do conjunto ' + nome_conjunto + ' é: ' + nucleo)
 
-print("\n")
+altura = fuzzy.calcula_altura(conjunto)
+print('A altura do conjunto ' + nome_conjunto + ' é: ' + str(altura))
+
 alfa_corte = raw_input('Valor para alfa-corte: ')
 conjunto_alfa_corte = fuzzy.calcula_alfa_corte(conjunto, alfa_corte)
 print('O intervalo correspondente ao alfa-corte é:' + conjunto_alfa_corte)
