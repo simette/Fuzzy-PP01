@@ -109,6 +109,6 @@ def calcula_grau_de_inclusao(conjunto_a, conjunto_b):
 	cardinalidade_a = calcula_cardinalidade(conjunto_a)
 	valor = calcula_soma_max(conjunto_a, conjunto_b)
 
-	grau_de_inclusao = (1*(cardinalidade_a - valor)) / cardinalidade_a
+	grau_de_inclusao = (1 / cardinalidade_a)*(cardinalidade_a - valor)
 
 	return round(grau_de_inclusao, 2)
