@@ -34,13 +34,13 @@ def calcula_pertinencia(conjunto, altura):
 		return 0
 
 	if(conjunto['a'] < altura and altura <= conjunto['m']):
-		return (altura - conjunto['a']) / (conjunto['m'] - conjunto['a'])
+		return round((altura - conjunto['a']) / (conjunto['m'] - conjunto['a']), 2)
 
 	if(conjunto['m'] < altura and altura <= conjunto['n']):
 		return 1
 
 	if(conjunto['n'] < altura and altura <= conjunto['b']):
-		return (conjunto['b'] - altura) / (conjunto['b'] - conjunto['n'])
+		return round((conjunto['b'] - altura) / (conjunto['b'] - conjunto['n']), 2)
 
 	if(altura > conjunto['b']):
 		return 0
@@ -57,11 +57,11 @@ def calcula_pertinencia_para_um_intervalo(grupo, step):
 
 
 def calcula_suporte(conjunto):
-	return "]" + str(conjunto['a']) + ", " + str(conjunto['b']) + "["
+	return [conjunto['a']+0.01, conjunto['b']+0.01]
 
 
 def calcula_nucleo(conjunto):
-	return "[" + str(conjunto['m']) + ", " + str(conjunto['n']) + "]"
+	return [conjunto['m'], conjunto['n']]
 
 
 def calcula_altura(conjunto):
@@ -79,7 +79,7 @@ def calcula_alfa_corte(conjunto, alfa_corte):
 			conjunto_alfa_corte.append(valor)
 		x = x + 0.01
 
-	return "[" + str(conjunto_alfa_corte[0]) + ", " + str(conjunto_alfa_corte[-1]) + "]"
+	return [conjunto_alfa_corte[0]+0.01, conjunto_alfa_corte[-1]+0.01]
 
 
 def calcula_cardinalidade(conjunto):
